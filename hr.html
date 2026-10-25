@@ -1,0 +1,122 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>OnboardAI – Hành trình hội nhập nhân sự mới</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+:root{color-scheme:light;--bg:#edf3f1;--sf:#fff;--ink:#14232b;--mut:#5b6b72;--pr:#0e7c66;--prx:#dff2ec;--ac:#f2a93b;--bd:#d3dfdb;--er:#c0392b;--ok:#1e8e4e;--wa:#a86a0c;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e191d;--sf:#16252a;--ink:#e8f0ee;--mut:#93a6ac;--pr:#3fc4a4;--prx:#17332f;--bd:#27393f;--ac:#f2b34f;--er:#ff7b6b;--ok:#4cd08a;--wa:#f0b552;--on:#08201a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e191d;--sf:#16252a;--ink:#e8f0ee;--mut:#93a6ac;--pr:#3fc4a4;--prx:#17332f;--bd:#27393f;--ac:#f2b34f;--er:#ff7b6b;--ok:#4cd08a;--wa:#f0b552;--on:#08201a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{font-size:1.6rem;margin:0 0 .2rem;line-height:1.2}h2{font-size:1.15rem;margin:0 0 .6rem}h3{font-size:1rem;margin:0 0 .4rem}p{margin:.2rem 0 .8rem}.sub{color:var(--mut);margin-bottom:1.2rem}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.btn{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:.45rem .85rem;cursor:pointer;min-height:38px}
+.btn:hover{border-color:var(--pr)}.btn.pr{background:var(--pr);color:var(--on);border-color:var(--pr);font-weight:500}.btn.dn{color:var(--er)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{min-height:30px;padding:.15rem .55rem;font-size:.85rem}
+input,select,textarea{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:.5rem .65rem;width:100%}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--pr)}
+label{display:block;margin-bottom:.8rem;font-weight:500}label input,label select,label textarea{margin-top:.25rem;font-weight:400}
+.err{color:var(--er);display:block;min-height:1em;font-weight:400}[aria-invalid=true]{border-color:var(--er)}
+.top{display:flex;gap:.6rem;align-items:center;padding:.6rem 1rem;background:var(--sf);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.4rem;font-size:1.1rem}.sp{flex:1}
+.ly{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 58px)}
+nav{padding:1rem .7rem;border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:.3rem;background:var(--sf)}
+nav button{text-align:left;background:none;border:0;border-radius:8px;padding:.6rem .8rem;cursor:pointer}
+nav button:hover{background:var(--prx)}nav button[aria-current=page]{background:var(--pr);color:var(--on);font-weight:700}
+main{padding:1.4rem clamp(1rem,3vw,2.2rem);max-width:1100px;width:100%}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:1.1rem}.card.warn{border-color:var(--ac)}
+.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:.9rem}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:1rem;margin-bottom:1rem}
+.bar,.row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}.bar input[type=search]{flex:1;min-width:160px}.bar select{width:auto}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:12px;background:var(--sf)}
+table{border-collapse:collapse;width:100%;min-width:560px}th,td{padding:.65rem .8rem;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut);font-weight:500;font-size:.88rem}tr:last-child td{border:0}tr.off td{opacity:.55}td.ac{white-space:nowrap;text-align:right}
+.b{display:inline-block;padding:.05rem .55rem;border-radius:99px;font-size:.8rem;border:1px solid currentColor;font-weight:500}.b.ok{color:var(--ok)}.b.wa{color:var(--wa)}.b.er{color:var(--er)}.b.pr{color:var(--pr)}
+.sk{height:16px;border-radius:6px;margin:.6rem 0;background:linear-gradient(90deg,var(--prx),var(--bd),var(--prx));background-size:200% 100%;animation:sk 1.2s linear infinite}@keyframes sk{to{background-position:-200% 0}}
+.em{text-align:center;padding:2rem 1rem;color:var(--mut)}.em svg{width:64px;margin-bottom:.4rem}
+.stat{font-size:1.8rem;font-weight:700;line-height:1.1}
+.note{padding:.6rem .8rem;border-radius:8px;background:var(--prx)}.note.er{color:var(--er)}
+dialog{border:1px solid var(--bd);border-radius:14px;background:var(--sf);color:var(--ink);width:min(480px,92vw);padding:1.2rem}dialog::backdrop{background:#0008}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1rem + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:.4rem;z-index:20}
+.ts{background:var(--ink);color:var(--bg);padding:.55rem .9rem;border-radius:10px;display:flex;gap:.8rem;align-items:center}.ts button{background:none;border:0;color:var(--ac);cursor:pointer;font-weight:700}
+details{margin:.5rem 0}summary{cursor:pointer;color:var(--pr);font-weight:500}
+@media(max-width:760px){.ly{grid-template-columns:1fr}nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--bd);padding:.5rem}nav button{white-space:nowrap}.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="app"></div><div id="toast" role="status" aria-live="polite"></div><dialog id="dlg"></dialog>
+<script>
+const $=(s,e=document)=>e.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)},fd=s=>s?s.split('-').reverse().join('/'):'—',wait=ms=>new Promise(r=>setTimeout(r,ms));
+const LOGO='<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" style="fill:var(--pr)"/><path d="M6 18c4 0 3-7 7-7s3 4 7-3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="8" r="2.4" style="fill:var(--ac)"/></svg>';
+const EMP='<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="14" width="44" height="38" rx="6" fill="none" style="stroke:var(--bd)" stroke-width="3"/><path d="M18 26h28M18 34h20M18 42h12" style="stroke:var(--bd)" stroke-width="3" stroke-linecap="round"/></svg>';
+const RL={hr:'HR'};
+const LV={high:['Cao','er'],mid:['Trung bình','wa'],low:['Thấp','ok']};
+const KEY='onboardai-v1';
+
+function mk(){
+  const H=[['h1','Trần Minh Anh','Kỹ thuật',-12,5],['h2','Nguyễn Thu Hà','Thiết kế',-20,6],['h3','Phạm Đức Long','Kinh doanh',-9,1]];
+  const tasks=[];H.forEach(h=>tasks.push({id:'t'+h[0],title:'Task mẫu',hire:h[0],due:day(5),done:true}));
+  return{hires:H.map(h=>({id:h[0],name:h[1],dept:h[2],start:day(h[3])})),tasks,
+  checkins:[],
+  documents:[{id:'d1',title:'Nội quy lao động 2026',cat:'Quy định',dept:'Toàn công ty',updated:day(0),status:'active'}],
+  journeys:[{id:'j1',name:'Hội nhập Kỹ sư phần mềm',dept:'Kỹ thuật',days:90,tasks:24,status:'active'}],
+  departments:[{id:'p1',name:'Kỹ thuật',head:'Lê Quang Huy',size:24,status:'active'}],
+  qa:[],risk:{},set:{theme:'auto',ai:true,mail:true}}
+}
+
+let D;try{D=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!D||!D.hires)D=mk();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
+const S={role:'hr',v:0},app=$('#app');
+const pct=h=>{const a=D.tasks.filter(t=>t.hire==h);return a.length?Math.round(a.filter(t=>t.done).length/a.length*100):0};
+const nm=id=>(D.hires.find(h=>h.id==id)||{name:'—'}).name;
+const opts=(a,v)=>a.map(o=>{const[x,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(x)}"${x==v?' selected':''}>${esc(l)}</option>`}).join('');
+const bdg=(t,c)=>`<span class="b ${c}">${esc(t)}</span>`,head=(t,s)=>`<h1>${t}</h1><p class="sub">${s}</p>`;
+const sk=(l='')=>`<div class="card" aria-busy="true"><p>${l}</p><div class="sk"></div></div>`;
+const empty=(t,b='')=>`<div class="em">${EMP}<p>${t}</p>${b}</div>`;
+const off=()=>D.set.ai?'':'<p class="note er">AI đang tắt.</p>';
+function toast(m,undo){const t=document.createElement('div');t.className='ts';t.innerHTML=`<span>${esc(m)}</span>`;if(undo){const b=document.createElement('button');b.textContent='Hoàn tác';b.onclick=()=>{undo();t.remove()};t.append(b)}$('#toast').append(t);setTimeout(()=>t.remove(),4500)}
+function fld(x,v){const a=`name="${x.n}" id="f-${x.n}"`;if(x.t=='select')return`<select ${a}>${opts(typeof x.o=='function'?x.o():x.o,v)}</select>`;if(x.t=='textarea')return`<textarea ${a} rows="3">${esc(v)}</textarea>`;return`<input ${a} type="${x.t=='email'?'email':x.t||'text'}" value="${esc(v)}">`}
+function modal(title,fields,v,ok){const d=$('#dlg');d.innerHTML=`<form id="mf" novalidate><h2>${title}</h2>${fields.map(x=>`<label>${x.l}${x.req?' *':''}${fld(x,v[x.n]??'')}<small class="err" id="e-${x.n}"></small></label>`).join('')}<div class="row" style="justify-content:flex-end;margin:0"><button type="button" class="btn" id="mc">Hủy</button><button class="btn pr">Lưu</button></div></form>`;
+$('#mc').onclick=()=>d.close();$('#mf').onsubmit=e=>{e.preventDefault();const o={};fields.forEach(x=>{const el=$('#f-'+x.n),val=el.value.trim();o[x.n]=x.t=='number'?+val:val});d.close();ok(o)};d.showModal()}
+function crud(c){const m=$('#main'),L=()=>D[c.key];let q='',f='';
+m.innerHTML=head(c.t,c.s)+`<div class="bar"><input id="q" type="search" placeholder="Tìm kiếm…" aria-label="Tìm kiếm">${c.fl?`<select id="fl" aria-label="Lọc"><option value="">${c.fl.l}</option>${opts(c.fl.o())}</select>`:''}<button class="btn pr" id="add">+ Thêm mới</button></div><div id="tb">${sk('Đang tải dữ liệu…')}</div>`;
+const draw=()=>{const r=L().filter(x=>(!f||x[c.fl.k]==f)&&norm(c.cols.map(k=>k.r?k.r(x).replace(/<[^>]+>/g,''):x[k.k]).join(' ')).includes(norm(q)));
+$('#tb').innerHTML=r.length?`<div class="tw"><table><thead><tr>${c.cols.map(k=>`<th>${k.l}</th>`).join('')}<th><span class="sr">Thao tác</span></th></tr></thead><tbody>${r.map(x=>`<tr class="${x.status=='archived'?'off':''}">${c.cols.map(k=>`<td>${k.r?k.r(x):esc(x[k.k])}</td>`).join('')}<td class="ac"><button class="btn sm" data-x="e" data-id="${x.id}">Sửa</button> <button class="btn sm ${c.arch?'':'dn'}" data-x="${c.arch?'a':'d'}" data-id="${x.id}">${c.arch?(x.status=='archived'?'Khôi phục':'Lưu trữ'):'Xóa'}</button></td></tr>`).join('')}</tbody></table></div>`:empty(q||f?'Không có kết quả phù hợp với bộ lọc.':'Chưa có dữ liệu. Hãy thêm mục đầu tiên.',`<button class="btn pr" data-x="n">${q||f?'Xóa bộ lọc':'Thêm mới'}</button>`)};
+setTimeout(draw,200);
+const form=(v,ok)=>modal(v.id?'Sửa thông tin':'Thêm mới',c.f,v,ok);
+$('#q').oninput=e=>{q=e.target.value;draw()};if(c.fl)$('#fl').onchange=e=>{f=e.target.value;draw()};
+$('#add').onclick=()=>form({},o=>{L().unshift({id:'x'+Date.now(),status:'active',...(c.def||{}),...o});save();draw();toast('Đã thêm mới')});
+m.onclick=e=>{const b=e.target.closest('[data-x]');if(!b)return;const id=b.dataset.id,x=L().find(y=>y.id==id),k=b.dataset.x;
+if(k=='e')form(x,o=>{Object.assign(x,o);save();draw();toast('Đã lưu thay đổi')});
+if(k=='a'){const p=x.status;x.status=p=='archived'?'active':'archived';save();draw();toast(x.status=='archived'?'Đã lưu trữ':'Đã khôi phục')}
+if(k=='d'){const i=L().indexOf(x);L().splice(i,1);save();draw();toast('Đã xóa')}}}
+const st=x=>x.status=='archived'?bdg('Đã lưu trữ','wa'):bdg('Đang dùng','ok');
+const DP=()=>D.departments.map(d=>d.name).concat('Toàn công ty','Nhân sự');
+
+/* ===== Các hàm HR nguyên bản từ file BAITAP1_2.html ===== */
+function vJr(){crud({key:'journeys',arch:1,t:'Quản lý hành trình',s:'Thiết kế các mẫu hành trình hội nhập theo phòng ban.',cols:[{k:'name',l:'Tên hành trình'},{k:'dept',l:'Phòng ban'},{k:'days',l:'Thời lượng',r:x=>x.days+' ngày'},{k:'tasks',l:'Số việc'},{k:'status',l:'Trạng thái',r:st}],f:[{n:'name',l:'Tên hành trình',req:1,min:5},{n:'dept',l:'Phòng ban',t:'select',o:()=>D.departments.map(d=>d.name)},{n:'days',l:'Thời lượng (ngày)',t:'number',req:1},{n:'tasks',l:'Số việc',t:'number',req:1}],def:{days:60,tasks:10}})}
+function vDocs(){crud({key:'documents',arch:1,t:'Thư viện tài liệu',s:'Quản lý tài liệu mà nhân sự mới cần đọc.',fl:{k:'cat',l:'Mọi loại',o:()=>['Quy định','Hướng dẫn','Văn hóa']},cols:[{k:'title',l:'Tên tài liệu'},{k:'cat',l:'Loại'},{k:'dept',l:'Áp dụng'},{k:'updated',l:'Cập nhật',r:x=>fd(x.updated)},{k:'status',l:'Trạng thái',r:st}],f:[{n:'title',l:'Tên tài liệu',req:1,min:5},{n:'cat',l:'Loại',t:'select',o:['Quy định','Hướng dẫn','Văn hóa']},{n:'dept',l:'Áp dụng cho',t:'select',o:DP}],def:{cat:'Quy định',dept:'Toàn công ty',updated:day(0)}})}
+function vHrd(){const m=$('#main'),av2=Math.round(D.hires.reduce((s,h)=>s+pct(h.id),0)/(D.hires.length||1)),al=Object.entries(D.risk),H=D.hires.length*34;
+m.innerHTML=head('Bảng điều khiển HR','Tổng quan tiến độ hội nhập toàn công ty.')+`<div class="grid" style="margin-bottom:1rem">${[['Nhân sự mới',D.hires.length],['Tiến độ trung bình',av2+'%'],['Cảnh báo đang mở',al.length],['Tài liệu đang dùng',D.documents.filter(d=>d.status=='active').length]].map(x=>`<div class="card"><div class="stat">${x[1]}</div>${x[0]}</div>`).join('')}</div><div class="cols"><div class="card"><h2>Tiến độ từng người</h2><svg viewBox="0 0 400 ${H>0?H:40}" width="100%" role="img" aria-label="Biểu đồ tiến độ">${D.hires.map((h,i)=>{const p=pct(h.id),c=D.risk[h.id]?'var(--er)':'var(--pr)';return`<g transform="translate(0 ${i*34})"><text x="0" y="19" font-size="13" style="fill:var(--ink)">${esc(h.name.split(' ').slice(-2).join(' '))}</text><rect x="110" y="6" width="230" height="18" rx="9" style="fill:var(--prx)"/><rect x="110" y="6" width="${p*2.3}" height="18" rx="9" style="fill:${c}"/><text x="348" y="19" font-size="13" style="fill:var(--ink)">${p}%</text></g>`}).join('')}</svg></div><div class="card"><h2>Cảnh báo từ mentor</h2>${al.length?al.map(([id,k])=>`<div class="note" style="margin-bottom:.5rem"><b>${esc(nm(id))}</b> ${bdg(LV[k.lv][0],LV[k.lv][1])}<br><small>${k.r.map(esc).join(' · ')}</small><br><button class="btn sm" data-id="${id}">Đã xử lý</button></div>`).join(''):empty('Chưa có cảnh báo nào được mentor xác nhận.')}</div></div>`;
+m.onclick=e=>{const b=e.target.closest('[data-id]');if(b){delete D.risk[b.dataset.id];save();vHrd();toast('Đã đánh dấu xử lý')}}}
+
+const V=[['Hành trình',vJr],['Tài liệu',vDocs],['Bảng điều khiển',vHrd]];
+
+function shell(){
+  const v=V;
+  app.innerHTML=`<header class="top"><b class="logo">${LOGO}OnboardAI</b>${bdg(RL[S.role],'pr')}<span class="sp"></span><button class="btn" id="out">Đăng xuất</button></header><div class="ly"><nav aria-label="Điều hướng">${v.map((x,i)=>`<button data-i="${i}" ${i==S.v?'aria-current="page"':''}>${x[0]}</button>`).join('')}</nav><main id="main" tabindex="-1"></main></div>`;
+  app.querySelector('nav').onclick=e=>{const b=e.target.closest('button');if(b){S.v=+b.dataset.i;shell()}};
+  $('#out').onclick=()=>{location.href='login.html'};
+  v[S.v][1]();
+}
+
+shell();
+</script>
+</body>
+</html>
