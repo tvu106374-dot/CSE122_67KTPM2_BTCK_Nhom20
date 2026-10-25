@@ -1,0 +1,148 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Nhân sự mới – OnboardAI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;700&display=swap">
+<style>
+:root{color-scheme:light;--bg:#edf3f1;--sf:#fff;--ink:#14232b;--mut:#5b6b72;--pr:#0e7c66;--prx:#dff2ec;--ac:#f2a93b;--bd:#d3dfdb;--er:#c0392b;--ok:#1e8e4e;--wa:#a86a0c;--on:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){color-scheme:dark;--bg:#0e191d;--sf:#16252a;--ink:#e8f0ee;--mut:#93a6ac;--pr:#3fc4a4;--prx:#17332f;--bd:#27393f;--ac:#f2b34f;--er:#ff7b6b;--ok:#4cd08a;--wa:#f0b552;--on:#08201a}}
+:root[data-theme="dark"]{color-scheme:dark;--bg:#0e191d;--sf:#16252a;--ink:#e8f0ee;--mut:#93a6ac;--pr:#3fc4a4;--prx:#17332f;--bd:#27393f;--ac:#f2b34f;--er:#ff7b6b;--ok:#4cd08a;--wa:#f0b552;--on:#08201a}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.55 "Be Vietnam Pro",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+h1{font-size:1.6rem;margin:0 0 .2rem;line-height:1.2}h2{font-size:1.15rem;margin:0 0 .6rem}h3{font-size:1rem;margin:0 0 .4rem}p{margin:.2rem 0 .8rem}.sub{color:var(--mut);margin-bottom:1.2rem}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--ac);outline-offset:2px}
+.btn{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:.45rem .85rem;cursor:pointer;min-height:38px}
+.btn:hover{border-color:var(--pr)}.btn.pr{background:var(--pr);color:var(--on);border-color:var(--pr);font-weight:500}.btn.dn{color:var(--er)}.btn:disabled{opacity:.5;cursor:not-allowed}
+.btn.sm{min-height:30px;padding:.15rem .55rem;font-size:.85rem}
+input,select,textarea{background:var(--sf);border:1px solid var(--bd);border-radius:8px;padding:.5rem .65rem;width:100%}
+input[type=checkbox]{width:20px;height:20px;accent-color:var(--pr)}
+label{display:block;margin-bottom:.8rem;font-weight:500}label input,label select,label textarea{margin-top:.25rem;font-weight:400}
+.err{color:var(--er);display:block;min-height:1em;font-weight:400}[aria-invalid=true]{border-color:var(--er)}
+.top{display:flex;gap:.6rem;align-items:center;padding:.6rem 1rem;background:var(--sf);border-bottom:1px solid var(--bd);position:sticky;top:0;z-index:5;flex-wrap:wrap}
+.logo{display:flex;align-items:center;gap:.4rem;font-size:1.1rem}.sp{flex:1}
+.ly{display:grid;grid-template-columns:210px 1fr;min-height:calc(100vh - 58px)}
+nav{padding:1rem .7rem;border-right:1px solid var(--bd);display:flex;flex-direction:column;gap:.3rem;background:var(--sf)}
+nav button{text-align:left;background:none;border:0;border-radius:8px;padding:.6rem .8rem;cursor:pointer}
+nav button:hover{background:var(--prx)}nav button[aria-current=page]{background:var(--pr);color:var(--on);font-weight:700}
+main{padding:1.4rem clamp(1rem,3vw,2.2rem);max-width:1100px;width:100%}
+.card{background:var(--sf);border:1px solid var(--bd);border-radius:12px;padding:1.1rem}.card.warn{border-color:var(--ac)}
+.cols{display:grid;grid-template-columns:1.2fr 1fr;gap:1rem;margin-bottom:1rem}
+.bar,.row{display:flex;gap:.6rem;flex-wrap:wrap;align-items:center;margin-bottom:1rem}.bar input[type=search]{flex:1;min-width:160px}.bar select{width:auto}
+.tw{overflow-x:auto;border:1px solid var(--bd);border-radius:12px;background:var(--sf)}
+table{border-collapse:collapse;width:100%;min-width:560px}th,td{padding:.65rem .8rem;text-align:left;border-bottom:1px solid var(--bd);vertical-align:top}th{color:var(--mut);font-weight:500;font-size:.88rem}tr:last-child td{border:0}tr.off td{opacity:.55}td.ac{white-space:nowrap;text-align:right}
+.b{display:inline-block;padding:.05rem .55rem;border-radius:99px;font-size:.8rem;border:1px solid currentColor;font-weight:500}.b.ok{color:var(--ok)}.b.wa{color:var(--wa)}.b.er{color:var(--er)}.b.pr{color:var(--pr)}
+.pg{height:8px;background:var(--prx);border-radius:9px;overflow:hidden}.pg i{display:block;height:100%;background:var(--pr)}
+.sk{height:16px;border-radius:6px;margin:.6rem 0;background:linear-gradient(90deg,var(--prx),var(--bd),var(--prx));background-size:200% 100%;animation:sk 1.2s linear infinite}@keyframes sk{to{background-position:-200% 0}}
+.em{text-align:center;padding:2rem 1rem;color:var(--mut)}.em svg{width:64px;margin-bottom:.4rem}
+.tk{display:flex;gap:.7rem;align-items:center;padding:.6rem 0;border-bottom:1px solid var(--bd)}.tk:last-child{border:0}.tk span{flex:1}.tk.done span{text-decoration:line-through;color:var(--mut)}
+.tl{list-style:none;margin:0;padding:0 0 0 1rem;border-left:3px dotted var(--bd)}.tl li{position:relative;padding:.3rem 0 .8rem 1rem}.tl li:before{content:"";position:absolute;left:-1.62rem;top:.5rem;width:14px;height:14px;border-radius:50%;background:var(--bg);border:3px solid var(--bd)}.tl li.d:before{background:var(--pr);border-color:var(--pr)}.tl li.c:before{border-color:var(--ac);background:var(--ac)}
+.chip{display:inline-block;background:var(--prx);border-radius:8px;padding:.1rem .55rem;margin:.1rem .2rem .1rem 0;font-size:.85rem}
+.note{padding:.6rem .8rem;border-radius:8px;background:var(--prx)}.note.er{color:var(--er)}
+dialog{border:1px solid var(--bd);border-radius:14px;background:var(--sf);color:var(--ink);width:min(480px,92vw);padding:1.2rem}dialog::backdrop{background:#0008}
+#toast{position:fixed;left:50%;transform:translateX(-50%);bottom:calc(1rem + env(safe-area-inset-bottom,0px));display:flex;flex-direction:column;gap:.4rem;z-index:20}
+.ts{background:var(--ink);color:var(--bg);padding:.55rem .9rem;border-radius:10px;display:flex;gap:.8rem;align-items:center}.ts button{background:none;border:0;color:var(--ac);cursor:pointer;font-weight:700}
+details{margin:.5rem 0}summary{cursor:pointer;color:var(--pr);font-weight:500}
+@media(max-width:760px){.ly{grid-template-columns:1fr}nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--bd);padding:.5rem}nav button{white-space:nowrap}.cols{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div id="app"></div><div id="toast" role="status" aria-live="polite"></div><dialog id="dlg"></dialog>
+<script>
+const $=(s,e=document)=>e.querySelector(s),esc=s=>String(s??'').replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const norm=s=>String(s).normalize('NFD').replace(/[\u0300-\u036f]/g,'').replace(/đ/g,'d').toLowerCase();
+const day=n=>{const d=new Date();d.setDate(d.getDate()+n);return d.toISOString().slice(0,10)},fd=s=>s?s.split('-').reverse().join('/'):'—',wait=ms=>new Promise(r=>setTimeout(r,ms));
+const LOGO='<svg width="26" height="26" viewBox="0 0 26 26" aria-hidden="true"><circle cx="13" cy="13" r="13" style="fill:var(--pr)"/><path d="M6 18c4 0 3-7 7-7s3 4 7-3" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"/><circle cx="20" cy="8" r="2.4" style="fill:var(--ac)"/></svg>';
+const EMP='<svg viewBox="0 0 64 64" aria-hidden="true"><rect x="10" y="14" width="44" height="38" rx="6" fill="none" style="stroke:var(--bd)" stroke-width="3"/><path d="M18 26h28M18 34h20M18 42h12" style="stroke:var(--bd)" stroke-width="3" stroke-linecap="round"/></svg>';
+const RL={newhire:'Nhân sự mới'};
+const KEY='onboardai-v1';
+
+function mk(){
+  const H=[['h1','Trần Minh Anh','Kỹ thuật',-12,5],['h2','Nguyễn Thu Hà','Thiết kế',-20,6],['h3','Phạm Đức Long','Kinh doanh',-9,1],['h4','Võ Khánh Vy','Kỹ thuật',-30,8],['h5','Đặng Gia Bảo','Vận hành',-5,0]];
+  const T=['Nộp hồ sơ và ký hợp đồng','Nhận laptop và tài khoản','Đọc nội quy lao động','Gặp mentor buổi đầu','Học khóa An toàn thông tin','Dự buổi giới thiệu phòng ban','Đặt mục tiêu 30 ngày','Hoàn thành dự án nhỏ đầu tiên'];let n=0;const tasks=[];
+  H.forEach(h=>T.forEach((t,j)=>tasks.push({id:'t'+ ++n,title:t,hire:h[0],due:day(h[3]+j*4+2),done:j<h[4]})));
+  const doc=(t,c,d)=>({id:'d'+Math.random().toString(36).slice(2,7),title:t,cat:c,dept:d,updated:day(-Math.floor(Math.random()*40)),status:'active'});
+  return{hires:H.map(h=>({id:h[0],name:h[1],dept:h[2],start:day(h[3])})),tasks,
+  checkins:[['h1',-3,'Tốt','Làm quen nhanh, đã cài xong môi trường làm việc.'],['h2',-9,'Bình thường','Cần thêm tài liệu về quy trình thiết kế.'],['h3',-6,'Khó khăn','Chưa rõ mục tiêu 30 ngày, cần họp lại với quản lý.'],['h4',-2,'Tốt','Đã hoàn thành dự án nhỏ, sẵn sàng nhận việc mới.']].map((c,i)=>({id:'c'+i,hire:c[0],date:day(c[1]),mood:c[2],note:c[3]})),
+  documents:[doc('Nội quy lao động 2026','Quy định','Toàn công ty'),doc('Chính sách nghỉ phép','Quy định','Nhân sự'),doc('Quy định lương và thưởng','Quy định','Nhân sự'),doc('Hướng dẫn cấp thiết bị và IT','Hướng dẫn','Kỹ thuật'),doc('Chính sách bảo hiểm và phúc lợi','Quy định','Nhân sự'),doc('Cẩm nang văn hóa công ty','Văn hóa','Toàn công ty'),doc('Quy trình an toàn thông tin','Hướng dẫn','Kỹ thuật')].map(d=>d),
+  journeys:[['Hội nhập Kỹ sư phần mềm','Kỹ thuật',90,24],['Hội nhập Nhà thiết kế','Thiết kế',60,18],['Hội nhập Chuyên viên kinh doanh','Kinh doanh',75,20]].map((j,i)=>({id:'j'+i,name:j[0],dept:j[1],days:j[2],tasks:j[3],status:'active'})),
+  departments:[['Kỹ thuật','Lê Quang Huy',24],['Thiết kế','Hoàng Mai Lan',9],['Kinh doanh','Bùi Thanh Tùng',15],['Vận hành','Ngô Phương Thảo',12]].map((d,i)=>({id:'p'+i,name:d[0],head:d[1],size:d[2],status:'active'})),
+  users:[['Trần Minh Anh','minhanh@onboardai.vn','newhire','Kỹ thuật'],['Lê Quang Huy','huy.le@onboardai.vn','mentor','Kỹ thuật'],['Vũ Hồng Nhung','nhung.vu@onboardai.vn','hr','Nhân sự'],['Admin hệ thống','admin@onboardai.vn','admin','Vận hành']].map((u,i)=>({id:'u'+i,name:u[0],email:u[1],role:u[2],dept:u[3],status:'active'})),
+  qa:[],risk:{},set:{theme:'auto',ai:true,mail:true}}
+}
+
+let D;try{D=JSON.parse(localStorage.getItem(KEY))}catch(e){}if(!D||!D.hires)D=mk();
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(D))}catch(e){}};
+const S={role:'newhire',v:0},app=$('#app');
+const pct=h=>{const a=D.tasks.filter(t=>t.hire==h);return a.length?Math.round(a.filter(t=>t.done).length/a.length*100):0};
+const opts=(a,v)=>a.map(o=>{const[x,l]=Array.isArray(o)?o:[o,o];return`<option value="${esc(x)}"${x==v?' selected':''}>${esc(l)}</option>`}).join('');
+const bdg=(t,c)=>`<span class="b ${c}">${esc(t)}</span>`,head=(t,s)=>`<h1>${t}</h1><p class="sub">${s}</p>`;
+const sk=(l='')=>`<div class="card" aria-busy="true"><p>${l}</p><div class="sk"></div><div class="sk" style="width:70%"></div><div class="sk" style="width:85%"></div></div>`;
+const empty=(t,b='')=>`<div class="em">${EMP}<p>${t}</p>${b}</div>`;
+const off=()=>D.set.ai?'':'<p class="note er">AI đang tắt. Quản trị viên có thể bật lại trong Cài đặt hệ thống.</p>';
+function toast(m,undo){const t=document.createElement('div');t.className='ts';t.innerHTML=`<span>${esc(m)}</span>`;if(undo){const b=document.createElement('button');b.textContent='Hoàn tác';b.onclick=()=>{undo();t.remove()};t.append(b)}$('#toast').append(t);setTimeout(()=>t.remove(),4500)}
+function modal(title,fields,v,ok){const d=$('#dlg');d.innerHTML=`<form id="mf" novalidate><h2>${title}</h2>${fields.map(x=>`<label>${x.l}${x.req?' *':''}<input name="${x.n}" id="f-${x.n}" value="${esc(v[x.n]??'')}"><small class="err" id="e-${x.n}"></small></label>`).join('')}<div class="row" style="justify-content:flex-end;margin:0"><button type="button" class="btn" id="mc">Hủy</button><button class="btn pr">Lưu</button></div></form>`;$('#mc').onclick=()=>d.close();$('#mf').onsubmit=e=>{e.preventDefault();const o={};fields.forEach(x=>o[x.n]=$('#f-'+x.n).value.trim());d.close();ok(o)};d.showModal()}
+
+/* ===== Nội dung đầy đủ của Nhân sự mới từ file gốc ===== */
+function vDash(){
+  const m=$('#main'),p=pct('h1'),t=D.tasks.filter(x=>x.hire=='h1'),nx=t.filter(x=>!x.done).sort((a,b)=>a.due>b.due?1:-1).slice(0,3),C=2*Math.PI*52;
+  const ms=[['Ngày 1 · Nhận máy và tài khoản',0],['Tuần 1 · Làm quen đội nhóm',25],['Tháng 1 · Dự án nhỏ đầu tiên',60],['Tháng 3 · Đánh giá hết thử việc',100]];let cur=false;
+  m.innerHTML=head('Chào Minh Anh, đây là hành trình của bạn','Bạn đã hoàn thành '+p+'% các việc hội nhập. Hãy làm tiếp từng bước nhỏ.')+`<div class="cols"><div class="card"><h2>Việc cần làm tiếp theo</h2>${nx.length?nx.map(x=>`<div class="tk"><input type="checkbox" data-id="${x.id}" aria-label="Hoàn thành: ${esc(x.title)}"><span>${esc(x.title)}</span>${x.due<day(0)?bdg('Quá hạn','er'):bdg(fd(x.due),'pr')}</div>`).join(''):empty('Bạn đã hoàn thành mọi việc. Chúc mừng!')}</div>
+  <div class="card" style="text-align:center"><svg viewBox="0 0 120 120" width="140" role="img" aria-label="Tiến độ ${p} phần trăm"><circle cx="60" cy="60" r="52" fill="none" style="stroke:var(--prx)" stroke-width="12"/><circle cx="60" cy="60" r="52" fill="none" style="stroke:var(--pr)" stroke-width="12" stroke-linecap="round" stroke-dasharray="${p/100*C} ${C}" transform="rotate(-90 60 60)"/><text x="60" y="68" text-anchor="middle" font-size="24" font-weight="700" style="fill:var(--ink)">${p}%</text></svg><p>${t.filter(x=>x.done).length}/${t.length} việc đã xong</p></div></div>
+  <div class="cols"><div class="card"><h2>Cột mốc</h2><ol class="tl">${ms.map(x=>{let c='';if(p>=x[1]&&x[1]<100||p==100)c='d';else if(!cur){c='c';cur=true}return`<li class="${c}">${x[0]}</li>`}).join('')}</ol></div><div class="card"><h2>Tài liệu nên đọc</h2>${D.documents.filter(d=>d.status=='active').slice(0,4).map(d=>`<p>${esc(d.title)}<br><small style="color:var(--mut)">${esc(d.cat)} · cập nhật ${fd(d.updated)}</small></p>`).join('')}<button class="btn" data-go="2">Hỏi AI về chính sách</button></div></div>`;
+  m.onclick=e=>{const c=e.target.closest('input[data-id]'),g=e.target.closest('[data-go]');if(c){D.tasks.find(x=>x.id==c.dataset.id).done=true;save();toast('Đã hoàn thành một việc');vDash()}if(g){S.v=+g.dataset.go;shell()}}
+}
+
+const TF=[{n:'title',l:'Tên việc',req:1,min:4},{n:'due',l:'Hạn hoàn thành',t:'date',req:1}];
+const SUG={'Kỹ thuật':['Cài đặt môi trường phát triển','Đọc quy ước mã nguồn','Mở yêu cầu hợp nhất đầu tiên'],'Thiết kế':['Truy cập thư viện thiết kế chung','Xem lại hệ thống màu và chữ','Trình bày bản phác thảo đầu tiên'],'Kinh doanh':['Học quy trình chăm sóc khách hàng','Nghe 3 cuộc gọi mẫu','Làm quen phần mềm quản lý khách hàng'],'Vận hành':['Xem quy trình mua sắm nội bộ','Gặp nhóm kho vận','Làm quen công cụ báo cáo']};
+
+function vCheck(){
+  const m=$('#main');let f='all',sel=[];
+  m.innerHTML=head('Checklist của tôi','Đánh dấu, thêm hoặc chỉnh sửa các việc hội nhập.')+`<div class="bar"><select id="fl" aria-label="Lọc"><option value="all">Tất cả</option><option value="todo">Chưa xong</option><option value="done">Đã xong</option></select><button class="btn pr" id="add">+ Thêm việc</button></div><div class="card" id="ls"></div><div class="card" style="margin-top:1rem"><h2>Cá nhân hóa checklist bằng AI</h2><p class="sub" style="margin-bottom:.6rem">AI gợi ý thêm việc theo phòng ban. Bạn quyết định giữ việc nào.</p>${off()}<div class="row"><select id="dp" style="width:auto" aria-label="Phòng ban">${opts(Object.keys(SUG).concat('Khác'))}</select><button class="btn" id="go" ${D.set.ai?'':'disabled'}>Gợi ý việc</button></div><div id="ai"></div></div>`;
+  const mine=()=>D.tasks.filter(x=>x.hire=='h1'),draw=()=>{const r=mine().filter(x=>f=='all'||(f=='done')==x.done);$('#ls').innerHTML=r.length?r.map(x=>`<div class="tk ${x.done?'done':''}"><input type="checkbox" data-x="t" data-id="${x.id}" ${x.done?'checked':''} aria-label="Hoàn thành: ${esc(x.title)}"><span>${esc(x.title)}</span>${!x.done&&x.due<day(0)?bdg('Quá hạn','er'):bdg(fd(x.due),'pr')}<button class="btn sm" data-x="e" data-id="${x.id}">Sửa</button><button class="btn sm dn" data-x="d" data-id="${x.id}">Xóa</button></div>`).join(''):empty('Chưa có việc nào ở mục này.')};draw();
+  const sug=async()=>{const dp=$('#dp').value,a=$('#ai');a.innerHTML=sk('AI đang phân tích vai trò…');await wait(1000);const s=SUG[dp];
+  if(!s){a.innerHTML='<div class="card warn"><h3>Không đủ dữ liệu để đưa ra đề xuất</h3><p>Phòng ban “Khác” chưa có mẫu hành trình. Hãy chọn phòng ban cụ thể hoặc tự thêm việc.</p><div class="row"><button class="btn" id="rt">Thử lại</button><button class="btn" id="mn">Dùng thủ công</button></div></div>';$('#rt').onclick=sug;$('#mn').onclick=()=>$('#add').click();return}
+  sel=s.map(()=>true);a.innerHTML=`<div class="card warn"><h3>Gợi ý cho khối ${esc(dp)}</h3>${s.map((x,i)=>`<label class="tk" style="margin:0"><input type="checkbox" data-s="${i}" checked><span>${esc(x)}</span></label>`).join('')}<details><summary>Vì sao có gợi ý này?</summary><p>Dựa trên mẫu hành trình của ${s.length} nhân sự cùng khối đã qua thử việc. Đây là dữ liệu mô phỏng.</p></details><div class="row"><button class="btn pr" id="ok">Chấp nhận mục đã chọn</button><button class="btn" id="rg">Tạo lại</button><button class="btn" id="no">Từ chối</button></div></div>`;
+  a.onchange=e=>{if(e.target.dataset.s!=null)sel[e.target.dataset.s]=e.target.checked};
+  $('#ok').onclick=()=>{const n=s.filter((x,i)=>sel[i]);n.forEach((x,i)=>D.tasks.push({id:'x'+Date.now()+i,title:x,hire:'h1',due:day(7+i*3),done:false}));save();a.innerHTML='';draw();toast(`Đã thêm ${n.length} việc vào checklist`)};$('#rg').onclick=sug;$('#no').onclick=()=>{a.innerHTML='';toast('Đã bỏ qua gợi ý')}};
+  $('#go').onclick=sug;$('#fl').onchange=e=>{f=e.target.value;draw()};
+  $('#add').onclick=()=>modal('Thêm việc',TF,{due:day(7)},o=>{D.tasks.push({id:'x'+Date.now(),hire:'h1',done:false,...o});save();draw();toast('Đã thêm việc')});
+  $('#ls').onclick=e=>{const b=e.target.closest('[data-x]');if(!b)return;const x=D.tasks.find(y=>y.id==b.dataset.id);if(b.dataset.x=='t'){x.done=b.checked;save();draw()}if(b.dataset.x=='e')modal('Sửa việc',TF,x,o=>{Object.assign(x,o);save();draw();toast('Đã lưu thay đổi')});if(b.dataset.x=='d'){const i=D.tasks.indexOf(x);D.tasks.splice(i,1);save();draw();toast('Đã xóa việc',()=>{D.tasks.splice(i,0,x);save();draw()})}}
+}
+
+const KB=[{k:['nghi phep','phep nam','nghi om'],a:'Bạn có 12 ngày phép năm, tính từ tháng đầu tiên. Hãy đăng ký trước ít nhất 3 ngày làm việc qua quản lý trực tiếp. Nghỉ ốm từ ngày thứ hai cần giấy xác nhận.',s:'Chính sách nghỉ phép · mục 2.1'},{k:['luong','thuong'],a:'Lương được chuyển vào ngày 5 hằng tháng. Thưởng hiệu suất được xét theo quý sau khi bạn qua thử việc.',s:'Quy định lương và thưởng · mục 1.3'},{k:['laptop','thiet bi','wifi','vpn','tai khoan'],a:'IT cấp laptop và tài khoản trong ngày đầu. Mật khẩu wifi và VPN nằm trong gói chào mừng; nếu chưa nhận, hãy gửi yêu cầu tới it@onboardai.vn.',s:'Hướng dẫn cấp thiết bị và IT · mục 4'},{k:['gio lam','di muon','lam viec','remote'],a:'Giờ làm việc là 8:30–17:30, nghỉ trưa 1 giờ. Bạn được làm việc từ xa tối đa 2 ngày mỗi tuần sau tháng đầu tiên.',s:'Nội quy lao động 2026 · mục 3.2'},{k:['bao hiem','phuc loi','kham'],a:'Bảo hiểm xã hội và y tế có hiệu lực từ khi ký hợp đồng. Công ty hỗ trợ khám sức khỏe định kỳ mỗi năm một lần.',s:'Chính sách bảo hiểm và phúc lợi · mục 5'},{k:['bao mat','mat khau','an toan'],a:'Dùng mật khẩu tối thiểu 12 ký tự, bật xác thực hai lớp và không chia sẻ tài khoản. Báo ngay cho IT khi nghi ngờ bị lộ thông tin.',s:'Quy trình an toàn thông tin · mục 2'}];
+
+function vAI(){
+  const m=$('#main');let cur=null;
+  m.innerHTML=head('Hỏi đáp chính sách với AI','Đặt câu hỏi về nội quy, nghỉ phép, lương, thiết bị. AI trả lời kèm nguồn tài liệu.')+off()+`<div class="card"><label for="qi">Câu hỏi của bạn<input id="qi" placeholder="Ví dụ: Tôi được nghỉ phép bao nhiêu ngày?" ${D.set.ai?'':'disabled'}><small class="err" id="qe"></small></label><div class="row"><button class="btn pr" id="ask" ${D.set.ai?'':'disabled'}>Hỏi AI</button>${['Nghỉ phép','Ngày trả lương','Nhận laptop','Làm việc từ xa'].map(x=>`<button class="btn sm" data-q="${x}" ${D.set.ai?'':'disabled'}>${x}</button>`).join('')}</div><div id="out"></div></div><h2 style="margin-top:1.4rem">Câu trả lời đã lưu</h2><div id="hs"></div>`;
+  const hist=()=>{$('#hs').innerHTML=D.qa.length?D.qa.map(x=>`<div class="card" style="margin-bottom:.6rem"><b>${esc(x.q)}</b><p>${esc(x.a)}</p><span class="chip">${esc(x.s)}</span> <button class="btn sm dn" data-d="${x.id}">Xóa</button></div>`).join(''):empty('Chưa có câu trả lời nào được lưu. Hãy hỏi AI và chấp nhận kết quả.')};hist();
+  const view=(ed)=>{$('#out').innerHTML=`<div class="card warn" style="margin-top:1rem"><h3>Câu trả lời của AI</h3>${ed?`<textarea id="ea" rows="4" aria-label="Sửa câu trả lời">${esc(cur.a)}</textarea>`:`<p>${esc(cur.a)}</p>`}<p><span class="chip">Nguồn: ${esc(cur.s)}</span></p><details><summary>Vì sao có câu trả lời này?</summary><p>Khớp từ khóa trong câu hỏi: ${cur.w.map(esc).join(', ')}. Độ tin cậy ước tính ${cur.c}%. Nội dung lấy từ tài liệu mô phỏng, hãy xác nhận với HR khi cần quyết định quan trọng.</p></details><div class="row">${ed?'<button class="btn pr" data-x="sv">Lưu chỉnh sửa</button>':'<button class="btn pr" data-x="ok">Chấp nhận</button><button class="btn" data-x="ed">Sửa</button><button class="btn" data-x="no">Từ chối</button><button class="btn" data-x="rg">Tạo lại</button>'}</div></div>`};
+  const run=async()=>{const q=$('#qi').value.trim();if(q.length<5){$('#qe').textContent='Hãy nhập câu hỏi dài hơn 5 ký tự.';$('#qi').setAttribute('aria-invalid',true);return}$('#qe').textContent='';$('#qi').setAttribute('aria-invalid',false);
+  $('#out').innerHTML=sk('AI đang tìm trong tài liệu…');await wait(1000);const n=norm(q),h=KB.map(e=>({e,w:e.k.filter(k=>n.includes(k))})).filter(x=>x.w.length).sort((a,b)=>b.w.length-a.w.length)[0];
+  if(!h){$('#out').innerHTML=`<div class="card warn" style="margin-top:1rem"><h3>AI chưa chắc chắn về câu hỏi này</h3><p>Không tìm thấy tài liệu khớp với “${esc(q)}”. Hãy thử diễn đạt khác hoặc hỏi HR trực tiếp.</p><div class="row"><button class="btn" data-x="rt">Thử lại</button><button class="btn" data-x="hr">Hỏi HR</button><button class="btn" data-x="rp">Báo cáo</button></div></div>`;return}
+  cur={q,a:h.e.a,s:h.e.s,w:h.w,c:Math.min(95,60+h.w.length*15)};view(false)};
+  $('#ask').onclick=run;$('#qi').onkeydown=e=>{if(e.key=='Enter')run()};
+  m.onclick=e=>{const b=e.target.closest('button');if(!b)return;if(b.dataset.q){$('#qi').value='Tôi muốn hỏi về '+b.dataset.q.toLowerCase();run()}
+  if(b.dataset.d){const i=D.qa.findIndex(x=>x.id==b.dataset.d),x=D.qa.splice(i,1)[0];save();hist();toast('Đã xóa câu trả lời',()=>{D.qa.splice(i,0,x);save();hist()})}
+  const k=b.dataset.x;if(k=='ok'){D.qa.unshift({id:'q'+Date.now(),q:cur.q,a:cur.a,s:cur.s});save();hist();$('#out').innerHTML='';toast('Đã lưu câu trả lời')}
+  if(k=='ed')view(true);if(k=='sv'){const v=$('#ea').value.trim();if(!v)return;cur.a=v;view(false);toast('Đã cập nhật nội dung, bấm Chấp nhận để lưu')}
+  if(k=='no'){$('#out').innerHTML='';toast('Đã từ chối câu trả lời')}if(k=='rg'||k=='rt')run();if(k=='hr')toast('Đã gửi câu hỏi tới HR (mô phỏng)');if(k=='rp')toast('Cảm ơn bạn, báo cáo đã được ghi nhận')}
+}
+
+const V=[['Tổng quan',vDash],['Checklist',vCheck],['Hỏi đáp AI',vAI]];
+
+function shell(){
+  const v=V;
+  app.innerHTML=`<header class="top"><b class="logo">${LOGO}OnboardAI</b>${bdg(RL[S.role],'pr')}<span class="sp"></span><button class="btn" id="out">Đăng xuất</button></header><div class="ly"><nav aria-label="Điều hướng">${v.map((x,i)=>`<button data-i="${i}" ${i==S.v?'aria-current="page"':''}>${x[0]}</button>`).join('')}</nav><main id="main" tabindex="-1"></main></div>`;
+  app.querySelector('nav').onclick=e=>{const b=e.target.closest('button');if(b){S.v=+b.dataset.i;shell()}};
+  $('#out').onclick=()=>{location.href='login.html'};
+  v[S.v][1]();
+}
+
+shell();
+</script>
+</body>
+</html>
